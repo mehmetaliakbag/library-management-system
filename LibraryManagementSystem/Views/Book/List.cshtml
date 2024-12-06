@@ -1,0 +1,51 @@
+﻿@using LibraryManagementSystem.ViewModels.Book
+
+@model List<BookListViewModel>
+
+<!-- The page title is set -->
+@{
+    ViewBag.Title = "List Of Books";
+}
+
+<!-- Button to add a new book -->
+<div class="d-flex justify-content-between align-items-center">
+    <h1>Books</h1>
+    <a asp-action="Create" class="btn btn-primary">
+           <i class="bi bi-plus"> Add a new book</i>   
+    </a>
+</div>
+
+<!-- Table displaying the list of books -->
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>No</th>  <!-- Column header for the serial number of the books -->
+            <th>Title</th>  <!-- Column header for the title of the books -->
+            <th>Manage</th>  <!-- Column header for actions (view, edit, delete) -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <!-- Each book will be displayed in a new row -->
+                <td>@book.SerialNumber</td>  <!-- Display the serial number of the book -->
+                <td>@book.Title</td>  <!-- Display the title of the book -->
+                <td>
+                    <!-- Button to view the details of the book -->
+                    <a asp-action="Details" class="btn btn-info" asp-route-id="@book.Id">
+                        <i class="bi bi-eye"></i>
+                    </a>
+                    <!-- Button to edit the book -->
+                    <a asp-action="Edit" class="btn btn-warning" asp-route-id="@book.Id">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    <!-- Button to delete the book -->
+                    <a asp-action="Delete" class="btn btn-danger" asp-route-id="@book.Id">
+                        <i class="bi bi-trash"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

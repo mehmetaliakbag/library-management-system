@@ -1,0 +1,61 @@
+﻿@using LibraryManagementSystem.ViewModels.Author
+
+@model AuthorEditViewModel
+
+@{
+    ViewBag.Title = "Add A Book";
+    <!-- Set the page title as "Add A Book" -->
+}
+
+<h1 class="text-center mb-4">Edit Author</h1>
+
+<!-- Start of the form to edit an author -->
+<form method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <!-- First Name Input Field -->
+    <div class="mb-3">
+        <label asp-for="FirstName" class="form-label"></label>  <!-- Label for First Name -->
+        <input asp-for="FirstName" class="form-control">  <!-- Input field for First Name -->
+        <div class="form-text">
+            <span asp-validation-for="FirstName"></span>  <!-- Display validation error for First Name -->
+        </div>
+    </div>
+
+    <!-- Last Name Input Field -->
+    <div class="mb-3">
+        <label asp-for="LastName" class="form-label"></label>  <!-- Label for Last Name -->
+        <input asp-for="LastName" class="form-control">  <!-- Input field for Last Name -->
+        <div class="form-text">
+            <span asp-validation-for="LastName"></span>  <!-- Display validation error for Last Name -->
+        </div>
+    </div>
+
+    <!-- Date of Birth Input Field -->
+    <div class="mb-3">
+        <label asp-for="DateOfBirth" class="form-label"></label>  <!-- Label for Date of Birth -->
+        <input asp-for="DateOfBirth" class="form-control">  <!-- Input field for Date of Birth -->
+        <div class="form-text">
+            <span asp-validation-for="DateOfBirth"></span>  <!-- Display validation error for Date of Birth -->
+        </div>
+    </div>
+
+    <!-- Buttons (Aligned to right) -->
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <!-- Back Button -->
+        <a asp-action="List" class="btn btn-primary">
+            <i class="bi bi-arrow-left-circle"></i> Back to List
+        </a>
+
+        <!-- Submit and Cancel Buttons -->
+        <div>
+            <button type="reset" class="btn btn-danger">
+                <i class="bi bi-x-circle"></i> Cancel
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-circle"></i> Submit
+            </button>
+        </div>
+    </div>
+</form>

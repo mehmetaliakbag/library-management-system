@@ -1,0 +1,50 @@
+﻿@using LibraryManagementSystem.ViewModels.Author
+
+@model AuthorDetailsViewModel
+
+@{
+    ViewBag.Title = "Details Of Authors";
+}
+
+<h1>Details</h1>
+
+<table class="table table-striped table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date Of Birth</th>
+            <th>Books</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.FirstName</td>
+            <td>@Model.LastName</td>
+            <td>@Model.DateOfBirth.ToString("dd/MM/yyyy")</td>
+            <td>
+                <ul>
+                    @if (Model.Books != null && Model.Books.Any())
+                    {
+                        @foreach (var book in Model.Books)
+                        {
+                            <li>@book.Title</li>
+                        }
+                    }
+                    else
+                    {
+                        <li>No books found for this author.</li>
+                    }
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- Button to navigate back to the list of books -->
+<div>
+    <a asp-action="List" class="btn btn-primary">
+        <i class="bi bi-arrow-left-circle"></i> Back to List
+    </a>
+</div>
+

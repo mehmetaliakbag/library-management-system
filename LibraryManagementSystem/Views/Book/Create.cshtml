@@ -1,0 +1,96 @@
+﻿@using LibraryManagementSystem.ViewModels.Book
+
+@model BookCreateViewModel
+
+@{
+    ViewBag.Title = "Add A Book";
+}
+
+<h1 class="text-center mb-4">New Book Registration</h1>
+
+<!-- Form for adding a new book -->
+<form method="post" class="p-4 border rounded shadow-sm bg-light">
+
+    <div class="row">
+        <!-- Left Column (Title, Author, Genre) -->
+        <div class="col-md-6">
+            <!-- Title Field -->
+            <div class="mb-3">
+                <label asp-for="Title" class="form-label">Title</label>
+                <input asp-for="Title" class="form-control" placeholder="Enter the title of the book">
+                <div class="form-text text-danger">
+                    <span asp-validation-for="Title"></span>
+                </div>
+            </div>
+
+            <!-- Author Field -->
+            <div class="mb-3">
+                <label asp-for="AuthorId" class="form-label">Author</label>
+                <select asp-for="AuthorId" asp-items="ViewBag.Authors" class="form-select">
+                    <option value="">Select an author</option>
+                </select>
+                <div class="form-text text-danger">
+                    <span asp-validation-for="AuthorId"></span>
+                </div>
+            </div>
+
+            <!-- Genre Field -->
+            <div class="mb-3">
+                <label asp-for="Genre" class="form-label">Genre</label>
+                <input asp-for="Genre" class="form-control" placeholder="Enter the genre of the book">
+                <div class="form-text text-danger">
+                    <span asp-validation-for="Genre"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column (Publish Date, ISBN, Copies Available) -->
+        <div class="col-md-6">
+            <!-- Publish Date Field -->
+            <div class="mb-3">
+                <label asp-for="PublishDate" class="form-label">Publish Date</label>
+                <input asp-for="PublishDate" class="form-control" type="date">
+                <div class="form-text text-danger">
+                    <span asp-validation-for="PublishDate"></span>
+                </div>
+            </div>
+
+            <!-- ISBN Field -->
+            <div class="mb-3">
+                <label asp-for="ISBN" class="form-label">ISBN</label>
+                <input asp-for="ISBN" class="form-control" placeholder="Enter the ISBN of the book">
+                <div class="form-text">Please enter ISBN in the format: 978-3-16-148410-0.</div> <!-- Açıklama eklendi -->
+                <div class="form-text text-danger">
+                    <span asp-validation-for="ISBN"></span>
+                </div>
+            </div>
+
+            <!-- Copies Available Field -->
+            <div class="mb-3">
+                <label asp-for="CopiesAvailable" class="form-label">Copies Available</label>
+                <input asp-for="CopiesAvailable" class="form-control" placeholder="Enter the number of copies">
+                <div class="form-text text-danger">
+                    <span asp-validation-for="CopiesAvailable"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons (Aligned to right) -->
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <!-- Back Button -->
+        <a asp-action="List" class="btn btn-primary">
+            <i class="bi bi-arrow-left-circle"></i> Back to List
+        </a>
+
+        <!-- Submit and Cancel Buttons -->
+        <div>
+            <button type="reset" class="btn btn-danger">
+                <i class="bi bi-x-circle"></i> Cancel
+            </button>
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-check-circle"></i> Submit
+            </button>
+        </div>
+    </div>
+</form>

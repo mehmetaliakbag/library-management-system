@@ -1,0 +1,26 @@
+﻿<!-- Importing the namespace for the Book model -->
+@using LibraryManagementSystem.ViewModels.Book
+
+<!-- The view model is the Book model, which holds the data for a single book -->
+@model BookDeleteViewModel
+
+<!-- The page title is set -->
+@{
+    ViewBag.Title = "Delete The Book";
+}
+
+<h1>Delete Confirmation</h1>
+
+<!-- Form for confirming the deletion of a book -->
+<form asp-action="DeleteConfirmed" asp-route-id="@Model.Id" method="post">
+    <!-- Hidden input field to send the book's ID in the form -->
+    <input type="hidden" asp-for="Id" />
+
+    <!-- Confirmation message asking if the user really wants to delete the book -->
+    <p>Do you want to delete &quot;@Model.Title&quot;</p>  <!-- Display the title of the book to be deleted -->
+    <!-- Button to confirm the deletion -->
+    <button class="btn btn-success">Yes, delete!</button>
+
+    <!-- Link to cancel the deletion and return to the index page -->
+    <a class="btn btn-danger" asp-action="List">No, cancel!</a>
+</form>

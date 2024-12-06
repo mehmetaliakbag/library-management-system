@@ -1,0 +1,43 @@
+﻿@using LibraryManagementSystem.ViewModels.Book
+
+<!-- The ViewModel that holds the details of a single book -->
+@model BookDetailsViewModel
+
+@{
+	ViewBag.Title = "Details Of Books";
+	<!-- Page title for the book details page -->
+}
+
+<!-- Heading displaying "Details" -->
+<h1>Details</h1>
+
+<!-- Table displaying the details of the selected book -->
+<table class="table table-striped table-hover table-bordered">
+	<thead>
+		<tr>
+			<th>Title</th>  <!-- Column header for the book's title -->
+			<th>Author</th>  <!-- Column header for the book's author -->
+			<th>Genre</th>  <!-- Column header for the book's genre -->
+			<th>Publish Date</th>  <!-- Column header for the book's publish date -->
+			<th>ISBN</th>  <!-- Column header for the book's ISBN -->
+			<th>Copies Available</th>  <!-- Column header for the number of available copies of the book -->
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>@Model.Title</td>  <!-- Display the title of the book from the model -->
+			<td>@Model.Author</td>  <!-- Display the author of the book from the model -->
+			<td>@Model.Genre</td>  <!-- Display the genre of the book from the model -->
+			<td>@Model.PublishDate.ToString("dd/MM/yyyy")</td>  <!-- Display the publish date formatted as dd/MM/yyyy -->
+			<td>@Model.ISBN</td>  <!-- Display the ISBN of the book from the model -->
+			<td>@Model.CopiesAvailable</td>  <!-- Display the number of available copies from the model -->
+		</tr>
+	</tbody>
+</table>
+
+<!-- Button to navigate back to the list of books -->
+<div>
+	<a asp-action="List" class="btn btn-primary">
+		<i class="bi bi-arrow-left-circle"></i> Back to List
+	</a>
+</div>
