@@ -42,12 +42,10 @@ namespace LibraryManagementSystem.Controllers
             Author? authorOfSelectedBook = LibraryDataService.authors
                 .FirstOrDefault(author => author.Id == selectedBook.AuthorId);
 
-            // If the author is not found, return a 404 error
-            if (authorOfSelectedBook == null)
-                return NotFound();
-
-            // Combine the author's first and last names
-            string authorFullName = $"{authorOfSelectedBook.FirstName} {authorOfSelectedBook.LastName}";
+            // Get Author's fullname, if fullname is null, App writes a warning message
+            string authorFullName = authorOfSelectedBook != null
+                ? $"{authorOfSelectedBook.FirstName} {authorOfSelectedBook.LastName}"
+                : "Author information is not available";
 
             // Create a ViewModel to pass the book's details to the view
             BookDetailsViewModel detailsOfBook = new()
