@@ -37,9 +37,10 @@ Data management is handled by the **LibraryServiceData** class, which is respons
 ### Testing Processes
 - **Manual Testing**: The project has been tested in the browser by simulating user scenarios.
 - **Unit Testing**: Unit tests have been written for controller and model classes. To run test scenarios:
+  
   ```bash
   dotnet test
-  ```bash
+  ```
   
 ### Project Structure
 Controllers: Classes controlling the business logic (AuthorController.cs, BookController.cs, HomeController.cs).
